@@ -1,6 +1,6 @@
 FLAGS=-Wall -O3 -g -Wextra -Wno-unused-parameter
 CXXFLAGS=$(CFLAGS)
-OBJECTS=game_of_life.o
+OBJECTS=game_of_life.o color.o
 BINARIES=game_of_life
 
 RGB_LIB_DISTRIBUTION=matrix
@@ -15,7 +15,7 @@ all : $(BINARIES)
 $(RGB_LIBRARY):
 	$(MAKE) -C $(RGB_LIBDIR)
 
-game_of_life : game_of_life.o $(RGB_LIBRARY)
+game_of_life : $(OBJECTS) $(RGB_LIBRARY)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
 game_of_life.o : game_of_life.cc
