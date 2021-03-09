@@ -1,6 +1,7 @@
 #include "game_of_life.h"
 
-#include <csignal>
+#include <signal.h>
+
 #include <iostream>
 #include <random>
 #include <vector>
